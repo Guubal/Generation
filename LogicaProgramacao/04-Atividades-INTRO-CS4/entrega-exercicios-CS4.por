@@ -25,14 +25,12 @@ programa {
 			escreva(iVetor[i], ",")
     }
   }
-}
 
-// Exercicio 02
+    // Exercicio 02
 
 
-// Exercicio 03
+    // Exercicio 03
 
-programa {
   inclua biblioteca Util --> u
   funcao inicio() {
     inteiro iMatriz[3][3], iCol=3, iLin=3, i, c, iSomaP=0, iSomaS=0
@@ -64,6 +62,8 @@ programa {
 
     escreva("\nSoma dos Elementos da Diagonal Principal: ", iSomaP)
     escreva("\nSoma dos Elementos da Diagonal Secundaria: ", iSomaS)
-}
 
-// Exercicio 04
+
+    // Exercicio 04
+
+}
