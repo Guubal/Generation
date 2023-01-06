@@ -27,7 +27,40 @@ programa {
   }
 
     // Exercicio 02
+  inclua biblioteca Util --> u
+	inclua biblioteca Matematica --> m
 
+	funcao inicio()
+	{
+		inteiro iVetor[10], c, i, iTam
+		real iSoma
+		
+		iSoma = 0.0
+		iTam = u.numero_elementos(iVetor)
+
+		para(c=0; c < iTam; c++){
+			iVetor[c] = u.sorteia(10, 50)
+			escreva(iVetor[c], " | ")
+		}
+		
+    		escreva("\n\nElementos nos indice Impares:")
+    		para(i=1; i < iTam; i+=2){
+	 		escreva(" | ", iVetor[i]," | ")	 		
+		}
+
+		escreva("\nElementos pares:")
+		para(i=0; i < iTam; i++){
+		 	se(iVetor[i] % 2 == 0){
+		 		escreva(" | ", iVetor[i]," | ")
+		 	}		 	
+		 	iSoma += iVetor[i]	
+    		}
+
+		escreva("\n\nSoma: ",iSoma)
+		escreva("\nMedia: ",iSoma/iTam)
+
+		
+	}
 
     // Exercicio 03
 
