@@ -1,5 +1,8 @@
 programa {
-// Inicio Exercicio 01 
+// Inicio Exercicio 01
+
+// Inicio Exercicio 01
+// Inicio Exercicio 02
   funcao inicio() {
     inteiro iNum
 
@@ -21,8 +24,8 @@ programa {
       escreva("O numero ",iNum," é impar e negativo!")
     }
   }
-// Fim Exercicio 01 
-// Inicio Exercicio 02
+// Fim Exercicio 02 
+// Inicio Exercicio 03
 
   funcao inicio() {
 
@@ -69,9 +72,9 @@ programa {
 	escreva ("Código invalido")		
     }    
   } 
-// Fim  Exercicio 02
+// Fim  Exercicio 03
 
-// Inicio Exercicio 03
+// Inicio Exercicio 04
   funcao inicio() {
     inteiro iIdade
 
@@ -91,9 +94,9 @@ programa {
       escreva("Apto a votar, voto é facultativo")
     }
   }
-// Fim  Exercicio 03
+// Fim  Exercicio 04
 
-// Inicio Exercicio 04
+// Inicio Exercicio 05
   funcao inicio() {
     real rSalario, rImposto
 
@@ -119,9 +122,9 @@ programa {
       escreva("Isento")
     }
   }
-// Fim  Exercicio 04
+// Fim  Exercicio 05
 
-// Inicio Exercicio 05
+// Inicio Exercicio 06
   inclua biblioteca Texto --> txt
   funcao inicio() {
     cadeia cColuna, cEspecie, cDieta
@@ -178,5 +181,5 @@ programa {
       escreva("Tipo anotomia de coluna não encontrada!")
     }
   }
-// Fim  Exercicio 05
+// Fim  Exercicio 06
 }
