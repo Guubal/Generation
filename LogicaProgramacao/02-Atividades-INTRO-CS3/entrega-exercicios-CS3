@@ -1,6 +1,29 @@
 programa {
 // Inicio Exercicio 01
+  funcao inicio()
+	{
+		inteiro iA, iB, iC, iSoma
 
+		escreva("Digite o valor para A: ")
+		leia(iA)
+		escreva("Digite o valor para B: ")
+		leia(iB)
+		escreva("Digite o valor para C: ")
+		leia(iC)
+
+		iSoma=iA+iB
+		
+		escreva("\n")
+		se(iSoma > iC){
+			escreva(iA,"+", iB,"=", iC,">", iSoma, "\n2A Soma de A + B é Maior do que C")
+		}
+		senao se(iSoma < iC){
+			escreva(iA,"+", iB,"=", iC,"<", iSoma, "\nA Soma de A + B é Menor do que C")			
+		}
+		senao{
+			escreva(iA,"+", iB,"=", iC,"=", iSoma, "\nA Soma de A + B é igual a C")	
+		}
+	}
 // Inicio Exercicio 01
 // Inicio Exercicio 02
   funcao inicio() {
