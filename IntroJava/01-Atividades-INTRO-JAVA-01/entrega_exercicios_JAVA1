@@ -1,0 +1,83 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+//Exercicio 01
+public class e1_abonoSalario {
+    public static void main(String[] args) {
+        float rSalario, rAbono;
+        Scanner entrada = new Scanner(System.in);
+
+        out.print("Digite o sálario: ");
+        rSalario = entrada.nextFloat();
+
+        out.print("Digite o abono: ");
+        rAbono = entrada.nextFloat();
+
+        out.printf("Total a receber: %.2f", (rSalario + rAbono));
+    }
+}
+
+//Exercicio 02
+public class e2_calculaMedia {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        float[] fNotas = new float[4];
+        float fSoma=0f, fMedia;
+
+        for(int c=0; c < 4; c++){
+            out.printf("Digite a nota do %dº Nota: ", c+1);
+            fNotas[c] = entrada.nextFloat();
+            fSoma += fNotas[c];
+        }
+        fMedia = fSoma/4;
+        if(fMedia < 7){
+            out.println("EM RECUPERACAO!");
+        } else if (fMedia < 5) {
+            out.println("REPROVADO!");
+        }else {
+            out.println("APROVADO");
+        }
+        out.printf("Média: %.1f", fMedia);
+    }
+}
+
+//Exercicio 03
+public class e3_salarioLiquido {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        float[] fVal = new float[4];
+        String sTab[] = {"Salario Bruto", "Adicional Noturno", "Horas extras", "Desconto"};
+        float rLiquido = 0f;
+
+        for (int c = 0; c < fVal.length; c++) {
+            out.printf("%s: ", sTab[c]);
+            fVal[c] = entrada.nextFloat();
+            if (c == 2) {
+                rLiquido += fVal[c] * 5;
+            } else {
+                rLiquido += fVal[c];
+            }
+        }
+        out.printf("\n\nSalário liiquido a receber: %.2f", rLiquido - (fVal[3] * 2));
+    }
+}
+
+//Exercicio 04
+public class e4_diferencaNumeros {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        float[] iVprodutos = new float[4];
+        float iDifX=1f, iDifY=1f;
+
+        for (int c = 0; c < iVprodutos.length; c++) {
+            out.printf("Digite o valor %dº produto: ", c+1);
+            iVprodutos[c] = entrada.nextFloat();
+            if(c < 2){
+                iDifX *= iVprodutos[c];
+            }else{
+                iDifY *= iVprodutos[c];
+            }
+        }
+        out.printf("\n\nA difirença dos produtos é: %.1f", iDifX-iDifY);
+    }
+}
