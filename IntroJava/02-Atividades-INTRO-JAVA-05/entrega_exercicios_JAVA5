@@ -1,0 +1,149 @@
+import static java.lang.System.in;
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class e1_verificaMaiorMenorIgual {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(in);
+        int[] iOp = new int[3];
+        char cLet[] = {'A','B','C'};
+        int c, iSoma;
+
+        for(c = 0; c < iOp.length; c++){
+            out.printf("Digite o número %c: ", cLet[c]);
+            iOp[c] = entrada.nextInt();
+        }
+
+        iSoma = iOp[0]+iOp[1];
+        out.printf("\n%d + %d = %d ", iOp[0], iOp[1], iSoma);
+
+        if(iOp[0]+iOp[1] == iOp[2]){
+            out.printf("= %d\nA soma de %c + %c é igual do que %c", iOp[2], cLet[0],cLet[1],cLet[2]);
+        } else if (iOp[0]+iOp[1] > iOp[2]){
+            out.printf("> %d\nA soma de %c + %c é Maior do que %c", iOp[2], cLet[0],cLet[1],cLet[2]);
+        } else {
+            out.printf("< %d\nA soma de %c + %c é Menor %c", iOp[2], cLet[0],cLet[1],cLet[2]);
+        }
+    }
+
+    public static void EX02(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int iNum;
+
+        out.print("Digite um número: ");
+        iNum = entrada.nextInt();
+
+        if (iNum >= 0) {
+            if (iNum % 2 == 0) {
+                out.printf("O número %d é par positivo", iNum);
+            } else {
+                out.printf("O número %d é impar positivo", iNum);
+            }
+        } else if (iNum % 2 == 0) {
+            out.printf("O número %d é par negativo", iNum);
+        } else {
+            out.printf("O número %d é impar negativo", iNum);
+        }
+    }
+
+    public static void EX03(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        String sProd[] = {"Cachorro-Quente", "X-Salada", "X-Bacon", "Bauru", "Refrigerante", "Suco de Laranja"};
+        float fPrec[] = {10, 15, 18, 12, 8, 13};
+        int iCod, iQua;
+        out.println("-------------------------------------------------");
+        out.printf("%-20s%-20s%-10s\n", "Código de produto", "Produto", "Preço");
+        out.println("-------------------------------------------------");
+        for (int c = 0; c < sProd.length; c++) {
+            out.printf("%-20d%-20s%-10.2f\n", c + 1, sProd[c], fPrec[c]);
+        }
+        out.print("\nDigite o cód do produto desejado: ");
+        iCod = entrada.nextInt();
+
+        if(iCod > sProd.length || iCod < sProd.length){
+            out.println("Código inválido!");
+        }else {
+            out.print("Digite a quantidade desejada: ");
+            iQua = entrada.nextInt();
+            
+            out.printf("\n\u001B[1mProduto:\u001B[0m %s", sProd[iCod - 1]);
+            out.printf("\nValor Total: %.2f", fPrec[iCod - 1] * iQua);
+        }
+
+    }
+
+    public static void EX04(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int iIdade;
+
+        out.print("Digite sua idade: ");
+        iIdade = entrada.nextInt();
+
+        if(iIdade < 16){
+            out.println("Näo apto a votar");
+        } else if (iIdade < 18 || iIdade >= 65) {
+            out.println("Apto a votar, voto é facultativo");
+        }else {
+            out.println("Apto a votar, voto é obrigatório");
+        }
+    }
+
+    public static void EX05(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        double rSal, rImp;
+
+        out.print("Digite o valor bruno do salario: R$ ");
+        rSal = entrada.nextFloat();
+        if (rSal > 4500) {
+            rImp = (28.0 / 100) * rSal;
+            out.printf("aqqqqqImposto de Renda: R$%.2f", rImp);
+        } else if (rSal > 3000) {
+            rImp = (18.0 / 100) * rSal;
+            out.printf("Imposto de Renda: R$%.2f", rImp);
+        } else if (rSal > 2000) {
+            rImp = (8.0 / 100) * rSal;
+            out.printf("Imposto de Renda: R$%.2f", rImp);
+        } else {
+            out.print("Isento");
+        }
+    }
+
+    public static void EX06(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        String sEntry[] = new String[3],
+                sTipo[] = {"Coluna", "Especie", "Dieta"};
+
+        for (int c = 0; c < sTipo.length; c++) {
+            out.printf("Digite a %s: ", sTipo[c]);
+            sEntry[c] = entrada.next().toUpperCase();
+        }
+
+        if (sEntry[0].equals("VERTEBRADO") && sEntry[1].equals("AVE")) {
+            if (sEntry[2].equals("CARNIVORO")) {
+                out.println("Aguia");
+            } else if (sEntry[2].equals("ONIVORO")) {
+                out.println("Pombo");
+            }
+        } else if (sEntry[0].equals("VERTEBRADO") && sEntry[1].equals("MAMIFERO")) {
+            if (sEntry[2].equals("ONIVORO")) {
+                out.println("Homem");
+            } else if (sEntry[2].equals("HERBIVORO")) {
+                out.println("Vaca");
+            }
+        } else if (sEntry[0].equals("INVERTEBRADO") && sEntry[1].equals("INSETO")) {
+            if (sEntry[2].equals("HEMATOFAGO")) {
+                out.println("Pulga");
+            } else if (sEntry[2].equals("HERBIVORO")) {
+                out.println("Largata");
+            }
+        } else if (sEntry[0].equals("INVERTEBRADO") && sEntry[1].equals("ANELIDIO")) {
+            if (sEntry[2].equals("HEMATOFAGO")) {
+                out.println("Sanguesuga");
+            } else if (sEntry[2].equals("ONIVORO")) {
+                out.println("Minhoca");
+            }
+        }
+    }
+
+}
