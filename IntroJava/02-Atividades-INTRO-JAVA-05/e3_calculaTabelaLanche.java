@@ -18,13 +18,12 @@ public class e3_calculaTabelaLanche {
         out.print("\nDigite o cód do produto desejado: ");
         iCod = entrada.nextInt();
 
-        if(iCod > 6){
+        if(iCod > sProd.length || iCod < sProd.length){
             out.println("Código inválido!");
         }else {
-
             out.print("Digite a quantidade desejada: ");
             iQua = entrada.nextInt();
-
+            
             out.printf("\n\u001B[1mProduto:\u001B[0m %s", sProd[iCod - 1]);
             out.printf("\nValor Total: %.2f", fPrec[iCod - 1] * iQua);
         }
