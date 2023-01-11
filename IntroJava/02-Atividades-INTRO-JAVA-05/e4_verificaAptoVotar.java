@@ -1,7 +1,5 @@
 package JAVA_05;
 import static java.lang.System.out;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class e4_verificaAptoVotar {
