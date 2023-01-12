@@ -1,0 +1,151 @@
+import java.util.Scanner;
+import static java.lang.System.out;
+
+public class e1_multiplosTresCinco {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int iVal[] = new int[2];
+        String sOrdem;
+
+        for(int c = 0; c < iVal.length; c++){
+            sOrdem = c == 0 ? "primeiro":"ultimo";
+            out.printf("Digite o %s número do intervalo: ", sOrdem);
+            iVal[c] = entrada.nextInt();
+        }
+        if(iVal[0] < iVal[1]){
+            for(int i = iVal[0]; i <= iVal[1]; i++){
+                if(i % 3 == 0 && i % 5 == 0){
+                    out.printf("%d é múltiplo de 5 e 3\n", i);
+                }
+            }
+        }else{
+            out.println("O intervalo é inválido");
+        }
+
+    }
+
+    //Exercicio 02
+
+    public static void EX02(String[] args){
+        int iX, iSomaP = 0, iSomaI = 0;
+
+        Scanner entrada = new Scanner(System.in);
+
+        for(int c =0; c < 10; c++){
+            System.out.printf("Digite o %dº número: ", c+1);
+            iX = entrada.nextInt();
+            if(iX % 2 == 0 ){
+                iSomaP++;
+            }else {
+                iSomaI++;
+            }
+        }
+        out.printf("\nTotal de número pares: %d", iSomaP);
+        out.printf("\nTotal de número impares: %d", iSomaI);
+    }
+
+    //Exercicio 03
+
+    public static void EX03(String[] args){
+        Scanner entrada = new Scanner(System.in);
+        int iIdade=0, iSomaA=0, iSomaM=0;
+        while (iIdade >= 0){
+            out.print("Digite uma idade: ");
+            iIdade = entrada.nextInt();
+            if(iIdade > 50){
+                iSomaA++;
+            }else if(iIdade  < 21 && iIdade > 0 ){
+                iSomaM++;
+            }
+        }
+        out.printf("\nTotal de pessoas menores  de 21 anos: %d", iSomaM);
+        out.printf("\nTotal de pessoas maiores  de 50 anos: %d", iSomaA);
+    }
+
+    //Exercicio 04
+    public static void Ex04(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        String  sSexo[] = {"Masculino","Feminino","Outros"},
+                sProf[] = {"Backend","Frontend","Mobile","FullStack"};
+        int iIdade, iSexo, iCat;
+        int iB=0, iF=0, iM=0, iS=0;
+        String cParar = "S";
+
+        while(!"N".equals(cParar)){
+            out.print("\n\nDigite a Idade: ");
+            iIdade = entrada.nextInt();
+
+            out.printf("\n%-10s%s\n","Opção","Sexo");
+            out.println("--------------------");
+            for(int c = 0; c < sSexo.length; c++){
+                out.printf("%-10d%s\n", c + 1, sSexo[c]);
+            }
+            out.println("--------------------");
+
+            out.printf("Digite uma opção[1-%d]: ", sSexo.length);
+            iSexo = entrada.nextInt();
+
+            out.printf("\n%-10s%s\n","Opção","Area");
+            out.println("--------------------");
+            for(int c = 0; c < sProf.length; c++){
+                out.printf("%-10d%s\n", c + 1, sProf[c]);
+            }
+            out.println("--------------------");
+
+            out.printf("Digite uma opção[1-%d]: ", sProf.length);
+            iCat = entrada.nextInt();
+
+            out.print("Deseja continuar[S/N]? ");
+            cParar = entrada.next();
+
+            if(iCat == 1){
+                iB++;
+            } else if (iCat == 2 && iSexo == 2) {
+                iF++;
+            } else if (iCat == 3 && iSexo == 1 && iIdade > 40) {
+                iM++;
+            } else if (iCat == 4 && iSexo == 2 && iIdade < 30) {
+                iS++;
+            }
+        }
+        out.printf("\nTotal de pessoas desenvolvedoras Backend: %d",iB);
+        out.printf("\nTotal de mulheres desenvolvedoras Frontend: %d",iF);
+        out.printf("\nTotal de homens desenvolvedores Mobile maiores de 40 anos: %d",iM);
+        out.printf("\nTotal de mulheres desenvolvedoras FullStack menores de 30 anos: %d",iS);
+    }
+
+    //Exercicio 05
+
+    public static void EX05(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int iNum, iSoma=0;
+        do{
+            out.print("Digite um número: ");
+            iNum = entrada.nextInt();
+            if(iNum > 0){
+                iSoma += iNum;
+            }
+        }while (iNum != 0);
+        out.printf("A soma dos números positivo é: %d", iSoma);
+    }
+
+    //Exercicio 06
+
+    public static void Ex06(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int iNum, c=0;
+        float rMedia=0.f,rSoma=0.f;
+
+        do{
+            out.print("Digite um número: ");
+            iNum = entrada.nextInt();
+            if(iNum % 3 == 0 && iNum != 0){
+                rSoma += iNum;
+                c++;
+            }
+        }while (iNum != 0);
+        rMedia = (rSoma/c);
+        out.printf("A média de todos os números múltiplos de 3 é: %.1f", rMedia);
+    }
+}
