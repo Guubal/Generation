@@ -22,4 +22,5 @@ public class personalEx01 {
         }
         out.printf("Média: %.2f", fMedia);
     }
+    
 }
