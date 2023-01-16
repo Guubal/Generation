@@ -1,0 +1,511 @@
+//Ex 01
+package e1_Cliente;
+
+import static java.lang.System.out;
+public class Cliente {
+   private String cpf, email,nome,telefone;
+   private boolean status;
+
+    public Cliente(String nome, String cpf, String email, String telefone,  boolean status) {
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.email = email;
+        this.nome = nome;
+        this.status = status;
+    }
+    public Cliente(){
+
+    }
+    public String telefone() {
+        return telefone;
+    }
+
+    public Cliente setTelefone(String telefone) {
+        this.telefone = telefone;
+        return this;
+    }
+
+    public String cpf() {
+        return cpf;
+    }
+
+    public Cliente setCpf(String cpf) {
+        this.cpf = cpf;
+        return this;
+    }
+
+    public String email() {
+        return email;
+    }
+
+    public Cliente setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String nome() {
+        return nome;
+    }
+
+    public Cliente setNome(String nome) {
+        this.nome = nome;
+        return this;
+    }
+
+    public boolean status() {
+        return status;
+    }
+
+    public Cliente setStatus(boolean status) {
+        this.status = status;
+        return this;
+    }
+
+    public void visualizar(){
+        out.println("*".repeat(40));
+        out.printf("\t CADASTRO: %s\n",nome);
+        out.println("*".repeat(40));
+
+        out.printf("%-15s %s","CPF", cpf);
+        out.printf("\n%-15s %s","NOME", nome);
+        out.printf("\n%-15s %s","TELEFONE", telefone);
+        out.printf("\n%-15s %s","E-MAIL", email);
+        out.printf("\n%-15s %b\n","ENDEREÇO", status);
+        out.println("*".repeat(40));
+    }
+
+}
+
+package e1_Cliente;
+import java.io.IOException;
+import java.util.Scanner;
+
+import static java.lang.System.out;
+public class testaCliente {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        Cliente cliente = new Cliente();
+        String selectors[] = {"Cadastrar", "Visualizar", "Sair"};
+
+        String nomeCliente, cpfCliente, emailCliente, telefoneCliente;
+        boolean statusCliente;
+        int opcao;
+
+        while (true) {
+            out.println("*".repeat(40));
+            out.printf("%-10s  %s \n", "", "GUUBAL - SISTEMAS");
+            out.println("*".repeat(40));
+            for (int c = 0; c < selectors.length; c++) {
+                out.printf("%9d %-3s %s \n", c + 1, " ", selectors[c]);
+            }
+            out.println("*".repeat(40));
+
+            out.print("Digite uma opção: ");
+            opcao = entrada.nextInt();
+
+            if (opcao == 3) {
+                System.out.println("\nObrigado!");
+                entrada.close();
+                System.exit(0);
+            }
+
+            switch (opcao){
+                case 1:
+                    out.println("\n");
+
+                    out.print("Nome: ");
+                    entrada.skip("\\R?");
+                    nomeCliente = entrada.nextLine();
+                    cliente.setNome(nomeCliente);
+
+                    out.print("CPF: ");
+                    entrada.skip("\\R?");
+                    cpfCliente = entrada.next();
+                    cliente.setCpf(cpfCliente);
+
+                    out.print("Email: ");
+                    entrada.skip("\\R?");
+                    emailCliente = entrada.next();
+                    cliente.setEmail(emailCliente);
+
+                    out.print("Telefone: ");
+                    entrada.skip("\\R?");
+                    telefoneCliente = entrada.next();
+                    cliente.setTelefone(telefoneCliente);
+
+                    out.print("Status[True][False]: ");
+                    entrada.skip("\\R?");
+                    statusCliente = entrada.nextBoolean();
+                    cliente.setStatus(statusCliente);
+
+                    keyPress();
+
+                    break;
+                case 2:
+
+                    out.println("\n");
+                    cliente.visualizar();
+                    keyPress();
+                    break;
+
+            }
+        }
+
+    }
+    public static void keyPress(){
+        try {
+            out.println("\n\nPRESSIONE ENTER PARA CONTINUAR...");
+            System.in.read();
+        } catch (IOException e){
+            out.println("Você pressionou outra teclar, pressione ENTER!");
+        }
+    }
+
+}
+
+
+//Ex 02
+
+package e2_Funcionario;
+
+import static java.lang.System.out;
+
+public class Funcionario {
+    private String nome,cpf,registro;
+    private float salario;
+    private boolean status;
+
+    public Funcionario(String nome, String cpf, String registro, float salario, boolean status) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.registro = registro;
+        this.salario = salario;
+        this.status = status;
+    }
+    public Funcionario(){
+
+    }
+
+    public String nome() {
+        return nome;
+    }
+
+    public Funcionario setNome(String nome) {
+        this.nome = nome;
+        return this;
+    }
+
+    public String cpf() {
+        return cpf;
+    }
+
+    public Funcionario setCpf(String cpf) {
+        this.cpf = cpf;
+        return this;
+    }
+
+    public String registro() {
+        return registro;
+    }
+
+    public Funcionario setRegistro(String registro) {
+        this.registro = registro;
+        return this;
+    }
+
+    public float salario() {
+        return salario;
+    }
+
+    public Funcionario setSalario(float salario) {
+        this.salario = salario;
+        return this;
+    }
+
+    public boolean status() {
+        return status;
+    }
+
+    public Funcionario setStatus(boolean status) {
+        this.status = status;
+        return this;
+    }
+
+    public void visualizar(){
+        out.println("*".repeat(40));
+        out.printf("\t FUNCIONARIO: %s\n",nome);
+        out.println("*".repeat(40));
+
+        out.printf("%-15s %s","CPF", cpf);
+        out.printf("\n%-15s %s","NOME", nome);
+        out.printf("\n%-15s %s","REGISTRO", registro);
+        out.printf("\n%-15s R$%.2f","SÁLARIO", salario);
+        out.printf("\n%-15s %b\n","Status", status);
+        out.println("*".repeat(40));
+    }
+}
+
+package e2_Funcionario;
+
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.concurrent.Semaphore;
+
+import static java.lang.System.out;
+
+public class testaFuncionario {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        Funcionario funcionario = new Funcionario();
+
+        String nomeFuncionario,cpfFuncionario,registroFuncionario;
+        float salarioFuncionario;
+        boolean statusFuncionario;
+
+
+        String selectors[] = {"Cadastrar", "Visualizar", "Sair"};
+        int opcao;
+
+        while (true) {
+            out.println("*".repeat(40));
+            out.printf("%-10s  %s \n", "", "GUUBAL - SISTEMAS");
+            out.println("*".repeat(40));
+            for (int c = 0; c < selectors.length; c++) {
+                out.printf("%9d %-3s %s \n", c + 1, " ", selectors[c]);
+            }
+            out.println("*".repeat(40));
+
+            out.print("Digite uma opção: ");
+            opcao = entrada.nextInt();
+
+            if (opcao == 3) {
+                System.out.println("\nObrigado!");
+                entrada.close();
+                System.exit(0);
+            }
+
+            switch (opcao){
+                case 1:
+                    out.println("\n");
+
+                    out.print("Nome: ");
+                    entrada.skip("\\R?");
+                    nomeFuncionario = entrada.nextLine();
+                    funcionario.setNome(nomeFuncionario);
+
+                    out.print("CPF: ");
+                    entrada.skip("\\R?");
+                    cpfFuncionario = entrada.next();
+                    funcionario.setCpf(cpfFuncionario);
+
+                    out.print("Registro: ");
+                    entrada.skip("\\R?");
+                    registroFuncionario = entrada.next();
+                    funcionario.setRegistro(registroFuncionario);
+
+                    out.print("Sálario: ");
+                    entrada.skip("\\R?");
+                    salarioFuncionario = entrada.nextFloat();
+                    funcionario.setSalario(salarioFuncionario);
+
+                    out.print("Status[True][False]: ");
+                    entrada.skip("\\R?");
+                    statusFuncionario = entrada.nextBoolean();
+                    funcionario.setStatus(statusFuncionario);
+
+                    keyPress();
+
+                    break;
+                case 2:
+
+                    out.println("\n");
+                    funcionario.visualizar();
+                    keyPress();
+                    break;
+
+            }
+        }
+
+    }
+    public static void keyPress(){
+        try {
+            out.println("\n\nPRESSIONE ENTER PARA CONTINUAR...");
+            System.in.read();
+        } catch (IOException e){
+            out.println("Você pressionou outra teclar, pressione ENTER!");
+        }
+    }
+}
+
+
+//Ex 03
+
+package e3_Produto;
+
+import static java.lang.System.out;
+
+public class Produto {
+    private String nome, categoria, cor;
+    private Float preco;
+    private int quant;
+
+    public Produto(String nome, String categoria, String cor, Float preco, int quant) {
+        this.nome = nome;
+        this.categoria = categoria;
+        this.cor = cor;
+        this.preco = preco;
+        this.quant = quant;
+    }
+
+    public Produto(){
+
+    }
+
+    public String nome() {
+        return nome;
+    }
+
+    public Produto setNome(String nome) {
+        this.nome = nome;
+        return this;
+    }
+
+    public String categoria() {
+        return categoria;
+    }
+
+    public Produto setCategoria(String categoria) {
+        this.categoria = categoria;
+        return this;
+    }
+
+    public String cor() {
+        return cor;
+    }
+
+    public Produto setCor(String cor) {
+        this.cor = cor;
+        return this;
+    }
+
+    public Float preco() {
+        return preco;
+    }
+
+    public Produto setPreco(Float preco) {
+        this.preco = preco;
+        return this;
+    }
+
+    public int quant() {
+        return quant;
+    }
+
+    public Produto setQuant(int quant) {
+        this.quant = quant;
+        return this;
+    }
+
+    public void visualizar(){
+        out.println("*".repeat(40));
+        out.printf("\t PRODUTO: %s\n",nome);
+        out.println("*".repeat(40));
+
+        out.printf("%-15s %s","NOME", nome);
+        out.printf("\n%-15s R$%.2f","PREÇO", preco);
+        out.printf("\n%-15s %s","CATEGORIA", categoria);
+        out.printf("\n%-15s %s","COR", cor);
+        out.printf("\n%-15s %d\n","QUANTIDADE", quant);
+        out.println("*".repeat(40));
+    }
+}
+
+package e3_Produto;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import static java.lang.System.out;
+public class testaProduto {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        Produto produto = new Produto();
+
+        String nomeProduto,categoriaProduto,corProduto;
+        float precoProduto;
+        int quantProduto;
+
+
+        String selectors[] = {"Cadastrar", "Visualizar", "Sair"};
+        int opcao;
+
+        while (true) {
+            out.println("*".repeat(40));
+            out.printf("%-10s  %s \n", "", "GUUBAL - SISTEMAS");
+            out.println("*".repeat(40));
+            for (int c = 0; c < selectors.length; c++) {
+                out.printf("%9d %-3s %s \n", c + 1, " ", selectors[c]);
+            }
+            out.println("*".repeat(40));
+
+            out.print("Digite uma opção: ");
+            opcao = entrada.nextInt();
+
+            if (opcao == 3) {
+                System.out.println("\nObrigado!");
+                entrada.close();
+                System.exit(0);
+            }
+
+            switch (opcao){
+                case 1:
+                    out.println("\n");
+
+                    out.print("Nome: ");
+                    entrada.skip("\\R?");
+                    nomeProduto = entrada.nextLine();
+                    produto.setNome(nomeProduto);
+
+                    out.print("Categoria: ");
+                    entrada.skip("\\R?");
+                    categoriaProduto = entrada.next();
+                    produto.setCategoria(categoriaProduto);
+
+                    out.print("Cor: ");
+                    entrada.skip("\\R?");
+                    corProduto = entrada.next();
+                    produto.setCor(corProduto);
+
+                    out.print("Preço: ");
+                    entrada.skip("\\R?");
+                    precoProduto = entrada.nextFloat();
+                    produto.setPreco(precoProduto);
+
+                    out.print("Quantidade: ");
+                    entrada.skip("\\R?");
+                    quantProduto = entrada.nextInt();
+                    produto.setQuant(quantProduto);
+
+                    keyPress();
+
+                    break;
+                case 2:
+
+                    out.println("\n");
+                    produto.visualizar();
+                    keyPress();
+                    break;
+
+            }
+        }
+
+    }
+    public static void keyPress(){
+        try {
+            out.println("\n\nPRESSIONE ENTER PARA CONTINUAR...");
+            System.in.read();
+        } catch (IOException e){
+            out.println("Você pressionou outra teclar, pressione ENTER!");
+        }
+    }
+}
