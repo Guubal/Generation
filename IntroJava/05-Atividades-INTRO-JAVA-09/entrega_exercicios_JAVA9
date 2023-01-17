@@ -1,0 +1,129 @@
+// Ex 01
+package e1_Cliente;
+import static java.lang.System.out;
+public class Cliente {
+    private String nome;
+
+    public Cliente(String nome) {
+        this.nome = nome;
+    }
+
+    public String nome() {
+        return nome;
+    }
+
+    public Cliente setNome(String nome) {
+        this.nome = nome;
+        return this;
+    }
+    public void Visualizar(){
+        out.println("\n\n");
+        out.println("*".repeat(40));
+        out.printf("\t CADASTRO: %s\n",nome);
+        out.println("*".repeat(40));
+        out.printf("NOME: %s\n",nome);
+
+
+    }
+}
+package e1_Cliente;
+
+public class pessoaFisica extends Cliente{
+    String CPF;
+
+    public pessoaFisica(String nome, String CPF) {
+        super(nome);
+        this.CPF = CPF;
+    }
+
+    @Override
+    public void Visualizar(){
+        super.Visualizar();
+        System.out.printf("CPF: %s", this.CPF);
+    }
+}
+package e1_Cliente;
+import static java.lang.System.out;
+public class pessoaJuridica extends Cliente{
+    String CNPJ;
+
+    public pessoaJuridica(String nome, String CNPJ) {
+        super(nome);
+        this.CNPJ = CNPJ;
+    }
+
+    @Override
+    public void Visualizar(){
+        super.Visualizar();
+        out.printf("CNPJ %s", this.CNPJ);
+    }
+}
+package e1_Cliente;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import static java.lang.System.out;
+
+public class testaCliente {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        pessoaFisica pf = new pessoaFisica("Gustavo","123.456.789.00");
+        pessoaJuridica pj = new pessoaJuridica("Felipe","12.345.678/9000");
+
+        String selectors[] = {"Pessoa Juridica","Pessoa Fisica","Sair"};
+        int opcao;
+
+        while(true){
+
+            out.println("\n\n");
+            out.println("*".repeat(40));
+            out.printf("%-10s  %s \n", "", "GUUBAL - SISTEMAS");
+            out.println("*".repeat(40));
+
+            for(int c = 0; c < selectors.length; c++){
+                out.printf("%9d %-3s %s \n", c + 1, " ", selectors[c]);
+            }
+            out.println("*".repeat(40));
+            out.print("Digite uma opção: ");
+            opcao = entrada.nextInt();
+
+            if(opcao == 3){
+                out.println("\nOBRIGADO!");
+                entrada.close();
+                System.exit(0);
+            }
+
+            switch (opcao){
+                case 1:
+                    pf.Visualizar();
+                    keyPress();
+                    break;
+                case 2:
+                    pj.Visualizar();
+                    keyPress();
+                    break;
+                default:
+                    out.println("Opção ínvalida!");
+            }
+        }
+    }
+    public static void keyPress(){
+        try {
+            out.println("\n\nPRESSIONE ENTER PARA CONTINUAR...");
+            System.in.read();
+        } catch (IOException e){
+            out.println("Você pressionou outra teclar, pressione ENTER!");
+        }
+    }
+}
+
+// Ex 02
+
+// Ex 03
+
+// Ex 04
+
+// Ex 05
+
+// Ex 06
