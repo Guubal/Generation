@@ -1,6 +1,5 @@
 package e1_Cliente;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.Scanner;
 
