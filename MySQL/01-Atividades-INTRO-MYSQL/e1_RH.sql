@@ -24,3 +24,7 @@ INSERT INTO tb_colaboradores(nome,cpf,salario,funcao) VALUES ("Lucas",2345678910
 SELECT * FROM tb_colaboradores WHERE salario > 2000;
 
 SELECT * FROM tb_colaboradores WHERE salario < 2000;
+
+UPDATE tb_colaboradores SET nome = "Gustavo" WHERE id = 1;
+
+SELECT * FROM tb_colaboradores;
